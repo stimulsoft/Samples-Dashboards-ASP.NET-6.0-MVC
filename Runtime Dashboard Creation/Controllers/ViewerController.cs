@@ -12,8 +12,9 @@ namespace Runtime_Dashboard_Creation.Controllers
         
         public IActionResult GetReport()
         {
-            var report = Helpers.Dashboard.CreateTemplate();
-            return StiNetCoreViewer.GetReportResult(this, report);
+            var appPath = StiNetCoreHelper.MapPath(this, string.Empty);
+            var dashboard = Helpers.Dashboard.CreateTemplate(appPath);
+            return StiNetCoreViewer.GetReportResult(this, dashboard);
         }
 
         public IActionResult ViewerEvent()

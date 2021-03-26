@@ -59,6 +59,12 @@ namespace Export_and_Print_Dashboard_from_Code.Controllers
             return StiNetCoreReportResponse.PrintAsPdf(report);
         }
 
+        public IActionResult PrintHtml()
+        {
+            var report = this.GetDashboard();
+            return StiNetCoreReportResponse.PrintAsHtml(report);
+        }
+
         public IActionResult ExportPdf()
         {
             var report = this.GetDashboard();

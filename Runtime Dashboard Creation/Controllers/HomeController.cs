@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Runtime_Dashboard_Creation.Models;
+using Stimulsoft.Report.Mvc;
 
 namespace Runtime_Dashboard_Creation.Controllers
 {
@@ -32,6 +33,13 @@ namespace Runtime_Dashboard_Creation.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Export()
+        {
+            var appPath = StiNetCoreHelper.MapPath(this, string.Empty);
+            var dashboard = Helpers.Dashboard.CreateTemplate(appPath);
+            return StiNetCoreReportResponse.ResponseAsExcel2007(dashboard);
         }
     }
 }
