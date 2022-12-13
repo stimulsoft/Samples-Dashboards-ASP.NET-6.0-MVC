@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Using_the_Dashboard_Theme_on_the_Website</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
